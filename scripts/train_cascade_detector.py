@@ -24,7 +24,7 @@ root_project_dir = dirname(abspath(__file__))
 base_name = basename(args.image)
 base_name = splitext(base_name)[0]
 vec_file_path = base_name + ".vec"
-negatives_list_file = join(root_project_dir, "images", "negatives.txt")
+negatives_list_file = join(root_project_dir, "../images", "negatives.txt")
 
 w = 32
 h = 32
