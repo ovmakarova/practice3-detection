@@ -55,26 +55,36 @@ __Дополнительные задачи:__
      локальную машину. Для инструкций можно обратиться к разделу
      [Общие инструкции по работе с Git][git-intro]
      в [практической работе 1][practice1].
-  2. Запустив скрипт `scripts/train_cascade_detector.py`, обучить детекторы
-     для логотипов ННГУ и OpenCV (см. директорию `images/positives`)
-  3. Собрать С++-приложение `detector` (см. раздел
+  2. Собрать проект с помощью CMake и MS VS (см. раздел
      [Сборка проекта с помощью CMake и MS VS][cmake-msvs]
-     в [практической работе 1][practice1]).
+     в [практической работе 1][practice1]). В результате успешной сборки
+	 в build-каталоге в директории `bin` долен появить исполняемый
+	 файл `detector.exe`, а также Python-скрипты `deps.py` и
+	 `train_cascade_detector.py`
+  3. Запустив скрипт `<project_build>/bin/train_cascade_detector.py`, обучить детекторы
+     для логотипов ННГУ и OpenCV (см. директорию `<project_source>/images/positives`).
+	 Справку по использованию скрипта можно получить указав при его запуске
+	 ключ `--help`.
   4. Создать новую ветку для разработки собственного приложения
      (см. раздел
      [Общие инструкции по работе с Git][git-intro]
      в [практической работе 1][practice1]).
   5. Создать копию файла `/apps/detector.cpp` и назвать
-     ее `/apps/detector_YOUR_NAME.cpp`. Далее изменять код только в файле
-     `/apps/detector_YOUR_NAME.cpp`, но не в `/apps/detector.cpp`.
+     ее `<project_source>/apps/detector_YOUR_NAME.cpp`. Далее изменять код только в файле
+     `<project_source>/apps/detector_YOUR_NAME.cpp`,
+	 но не в `<project_source>/apps/detector.cpp`.
   6. Убедиться, что проект успешно собирается и создается новый
-     исполняемый файл `detector_YOUR_NAME.exe`.
-  7. Прислать Pull Request с еще неизмененным сэмплом. Пометить в конце названия
+     исполняемый файл `<project_build>/bin/detector_YOUR_NAME.exe`.
+  7. Прислать Pull Request с внесенными изменениями. Пометить в конце названия
      `(NOT READY)`. По мере готовности решений основных задач Pull Request можно
      будет переименовать.
-  8. Реализовать детектирование на статичном изображении. Путь к файлу 
+  8. В файле `<project_source>/apps/detector_YOUR_NAME.cpp` реализовать детектирование
+     на статичном изображении. Путь к файлу 
      с изображением передается в программу с помощью ключа `--image`. 
      Детектор загружается из файла, заданного посредством ключа `--detector`.
+	 Полный список принимаемых параметров можно посмотреть запустив исполняемый
+	 файл с ключом `--help`. См. документацию к классу
+	 [cv::CascadeClassifier][cascadeclassifier] (методы `load` и `detectMultiScale`).
   9. Реализовать поддержку детектирования на видео из файла (ключ `--video`)
      или с камеры (`--camera`). См. документацию к
      классу [cv::VideoCapture][capture] для работы с видео.
@@ -85,8 +95,8 @@ __Дополнительные задачи:__
   11. Изменяя параметры обучения детекторов (тип используемых признаковых
      описаний) визуально сравнить их влияние на качество детектирования 
      на тестовых видео (из директории `videos`). Также применить готовые 
-     детекторы лиц из библиотеки OpenCV (директории `data/haarcascades`
-     и `data/lbpcascades`).
+     детекторы лиц из библиотеки OpenCV (директории `<opencv_source>/data/haarcascades`
+     и `<opencv_source>/data/lbpcascades`).
   12. Решить задачи из списка [Дополнительные задачи][tasks].
 
 <!-- LINKS -->
@@ -96,3 +106,4 @@ __Дополнительные задачи:__
 [cmake-msvs]: https://github.com/Itseez-NNSU-SummerSchool2015/practice1-devtools#Сборка-проекта-с-помощью-cmake-и-microsoft-visual-studio
 [tasks]: https://github.com/Itseez-NNSU-SummerSchool2015/practice2-opencv-intro#Задачи
 [capture]: http://docs.opencv.org/modules/highgui/doc/reading_and_writing_images_and_video.html#videocapture
+[cascadeclassifier]: http://docs.opencv.org/modules/objdetect/doc/cascade_classification.html#cascadeclassifier

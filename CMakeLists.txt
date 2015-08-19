@@ -32,6 +32,7 @@ set(LIBRARY_DEPS ${OpenCV_LIBS})
 
 # Add apps for detection.
 add_subdirectory(apps)
+add_subdirectory(scripts)
 
 # Report generation summary.
 message( STATUS "")
