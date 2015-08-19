@@ -13,12 +13,9 @@ parser.add_argument("--image", type=str, required=True, help="image with object 
 parser.add_argument("--features", type=str, default="LBP", help="features to be used in cascade detector (HAAR or LBP)")
 args = parser.parse_args()
 
-# opencv_bin_path = "C:/OpenCV-2.4.11/opencv/build/x64/vc10/bin"
-# create_samples_app = "opencv_createsamples.exe"
-# train_cascade_app = "opencv_traincascade.exe"
-opencv_bin_path = "~/programs/opencv-2.4.11/build/bin"
-create_samples_app = "opencv_createsamples"
-train_cascade_app = "opencv_traincascade"
+opencv_bin_path = "C:/OpenCV-2.4.11/opencv/build/x64/vc10/bin"
+create_samples_app = "opencv_createsamples.exe"
+train_cascade_app = "opencv_traincascade.exe"
 
 root_project_dir = dirname(abspath(__file__))
 base_name = basename(args.image)
